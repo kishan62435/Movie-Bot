@@ -1,0 +1,136 @@
+Screen:
+    MDCard:
+        size_hint:(0.98,0.98)
+        pos_hint: {"center_x":0.5,"center_y": 0.5}
+        elevation: 2
+        padding: 10
+        spacing:10
+
+        orientation: "vertical"
+
+        MDRoundFlatButton:
+            text: "X"
+            font_size:18
+            pos_hint:{"center_x":0.965}
+            size_hint:(0.08,0.35)
+            on_press:app.close()
+        MDLabel:
+            id: welcome_label
+            text: "Movie-Bot"
+            font_size: 40
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 12
+
+        MDTextFieldRound:
+            id: name
+            hint_text: "Enter the Movie name"
+            font_size: 24
+            icon_right: "movie"
+            size_hint:(0.55,0.35)
+            pos_hint: {"center_x":0.5}
+        Widget:
+            size_hint_y:None
+            height: 20
+
+        MDLabel:
+            id: select_quality
+            text:"Slecet the preferred quality."
+            font_size: 20
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            #spacing: 20
+
+        GridLayout:
+            cols: 6
+            rows: 1
+            padding: 0
+            spacing: 0
+            pos_hint:{"center_x":0.5}
+
+            Label:
+                text:"480p"
+                font_size:20
+            CheckBox:
+                group: "Movie Quality"
+                on_active: app.checkBox_click(self, self.active, "1")
+
+            Label:
+                text:"720p"
+                font_size:20
+            CheckBox:
+                group: "Movie Quality"
+                on_active: app.checkBox_click(self, self.active, "2")
+
+            Label:
+                text:"1080p"
+                font_size:20
+            CheckBox:
+                group: "Movie Quality"
+                on_active: app.checkBox_click(self, self.active, "3")
+
+        MDLabel:
+            id: status
+            text: ""
+            font_size: 16
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+        MDRoundFlatButton:
+            text: "Search"
+            font_size:12
+            size_hint:(0.2,0.38)
+            pos_hint:{"center_x":0.5}
+            on_press: app.search_button()
+            on_release: app.status_sleep()
+        # Widget:
+        #     size_hint_y:None
+        #     height: 10
+
+        GridLayout:
+            clos: 2
+            rows: 2
+            padding: 20
+            spacing: 30
+            pos_hint:{"center_x":0.822}
+
+            MDRoundFlatButton:
+                text: "Watch Now-1"
+                font_size:12
+                #pos_hint:{"center_x":0.5}
+                on_press:app.watcha()
+            MDRoundFlatButton:
+                text: "Watch Now-2"
+                font_size:12
+                #pos_hint:{"center_x":0.5}
+                on_press: app.watchb()
+            MDRoundFlatButton:
+                text: ".Download-1."
+                font_size:12
+                on_press: app.downloada()
+
+            MDRoundFlatButton:
+                text: ".Download-2."
+                font_size:12
+                on_press: app.downloadb()
+        Widget:
+            size_hint_y:None
+            height: 15
+        # GridLayout:
+        #     clos: 2
+        #     rows: 1
+        #     padding: 20
+        #     spacing: 20
+        #     pos_hint:{"center_x":0.829}
+
+        #     MDRoundFlatButton:
+        #         text: ".Download-1."
+        #         font_size:12
+        #         on_press: app.downloada()
+
+        #     MDRoundFlatButton:
+        #         text: ".Download-2."
+        #         font_size:12
+        #         on_press: app.downloadb()
